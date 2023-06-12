@@ -7,7 +7,26 @@
 </head>
 <body>
 <main class="container">
-    <h1>Main page</h1>
+    <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
+        <ul>
+            <li><a href="{% url 'noteapp:note' %}" role="button">Add note</a></li>
+            <li><a href="{% url 'noteapp:tag' %}" role="button">Add Tag</a></li>
+        </ul>
+    </nav>
+
+    {% for note in notes %}
+    <ul>
+        <li>
+            {% if not note.done %}
+            <a href="{% url 'noteapp:detail' note.id %}" role="button" class="outline"> {{ note.name }} </a>
+            <a href="{% url 'noteapp:set_done' note.id %}" role="button"> Mark Done </a>
+            <a href="{% url 'noteapp:delete' note.id %}" role="button" class="contrast"> Delete note </a>
+            {% else %}
+            <a href="{% url 'noteapp:detail' note.id %}" role="button" class="secondary"><s>{{ note.name }}</s></a>
+            {% endif %}
+        </li>
+    </ul>
+    {% endfor %}
 </main>
 </body>
 </html>
