@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+from .forms import *
+
+def signupuser(request):
+    if request.user.is_authenticated:
+        return redirect(to="noteapp:index")
+    
+    if request.method == "POST":
+        
+
