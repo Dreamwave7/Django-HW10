@@ -22,7 +22,7 @@ def signupuser(request):
 def loginuser(request):
 
     if request.user.is_authenticated:
-        return redirect(to='noteapp:main')
+        return redirect(to='noteapp:index')
 
     if request.method == 'POST':
         user = authenticate(username=request.POST['username'], password=request.POST['password'])
@@ -31,7 +31,7 @@ def loginuser(request):
             return redirect(to='users:login')
 
         login(request, user)
-        return redirect(to='noteapp:main')
+        return redirect(to='noteapp:index')
 
     return render(request, 'users/login.html', context={"form": LoginForm()})
 
@@ -40,9 +40,14 @@ def loginuser(request):
 @login_required
 def logoutuser(request):
     logout(request)
-    return redirect(to='noteapp:main')
+    return redirect(to='noteapp:index')
 
 
+
+
+@login_required
+def profile(request):
+    return render(request,"users/profile.html")
 
 
 
