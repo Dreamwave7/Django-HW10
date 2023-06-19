@@ -1,0 +1,28 @@
+.quote {
+    padding: 10px;
+    margin-bottom: 30px;
+    border: 1px solid #333333;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #333333;
+}
+
+
+.tag {
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: white;
+    font-size: small;
+    background-color: #7CA3E6;
+}
+
+a {
+    color: #4582ec;
+    text-decoration: none;
+}
+
+.quote small.author {
+    font-weight: bold;
+    color: #3677E8;
+}
+
+
