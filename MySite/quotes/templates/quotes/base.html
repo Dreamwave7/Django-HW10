@@ -20,11 +20,13 @@
                     <a href="/quotes" style="text-decoration: none">Homework 10</a>
                 </h1>
             </div>
-        <div class="col-md-5">
+        <div class="col-md-8">
             <p>
                 {% if user.is_authenticated %}
                 <span>Hello {{name}}</span>
                 <a href="/users/logout">logout</a>
+                <a href="/quotes/add_quote">Add quote</a>
+                <a href="/quotes/add_author">Add author</a>
                 
                 {%else%}
                 <a href="/users/login">Login</a>
